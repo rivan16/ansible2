@@ -3,11 +3,11 @@
 
 ---
 
-#- name: SWITCH
-  #hosts: (CHANGES THIS)
-  #gather_facts: false
-  #connection: local
-  #tasks:
+- name: SWITCH
+  hosts: (CHANGES THIS)
+  gather_facts: false
+  connection: local
+  tasks:
     - name: DHCP
       telnet:
         user: admin
