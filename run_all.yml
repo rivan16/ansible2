@@ -11,7 +11,7 @@
 
   tasks:
     include_tasks: dhcp.yml
-
+    include_tasks: vlan.yml
 
 
 #CUCM
@@ -22,7 +22,10 @@
   connection: local
 
   tasks:
-    include_tasks: cucm.yml
+    include_tasks: analog.yml
+    include_tasks: phone.yml
+    include_tasks: video.yml
+    include_tasks: call.yml
 
 
 #EDGE
