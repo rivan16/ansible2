@@ -38,3 +38,13 @@
 
   tasks:
     - include_tasks: edge.yml
+    
+    
+ #AUTO WIFI
+ - name: AUTO-WIFI
+   host: wifi
+   gather_facts: false
+   connection: local
+   
+   task:
+     - include_tasks: wifi.yml
