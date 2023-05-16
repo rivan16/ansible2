@@ -3,10 +3,6 @@
 
 ---
 
-- name: CUCM-M
-  hosts: (CHANGES THIS)
-  gather_facts: false
-  connection: local
   tasks:
     - name: E-PHONES
       telnet:
