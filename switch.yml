@@ -1,0 +1,99 @@
+#DYNAMIC HOST CONFIGURATION PROTOCOL
+#SWITCH
+
+---
+
+- name: SWITCH
+  hosts: (CHANGES THIS)
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: DHCP
+      telnet:
+        user: admin
+        password: pass
+        login_prompt: "Username: "
+        prompts:
+          - '[>|#]'
+        command:
+          - terminal length 0
+          - enable
+          - config t
+          - ip dhcp Excluded-add 10._.1.1 10._.1.100
+          - ip dhcp Excluded-add 10._.10.1 10._.10.100
+          - ip dhcp Excluded-add 10._.50.1 10._.50.100
+          - ip dhcp Excluded-add 10._.100.1 10._.100.100
+          - ip dhcp pool MGMTDATA
+          - network 10._.1.0 255.255.255.0
+          - default-router 10._.1.4
+          - domain-name MGMTDATA.COM
+          - dns-server 10._.1.10
+          - ip dhcp pool WIFIDATA
+          - network 10._.10.0 255.255.255.0
+          - default-router 10._.10.4
+          - domain-name WIFIDATA.COM
+          - dns-server 10._.1.10
+          - ip dhcp pool IPCCTV
+          - network 10._.50.0 255.255.255.0
+          - default-router 10._.50.4
+          - domain-name IPCCTV.COM
+          - dns-server 10._.1.10
+          - ip dhcp pool VOICEVLAN
+          - network 10._.100.0 255.255.255.0
+          - default-router 10._.100.4
+          - domain-name VOICEVLAN.COM
+          - dns-server 10._.1.10
+          - option 150 ip 10._.100.8   
+          - END
+
+
+
+- name: SWITCH
+  hosts: (CHANGES THIS)
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: VLAN
+      telnet:
+        user: admin
+        password: pass
+        login_prompt: "Username: "
+        prompts:
+          - '[>|#]'
+        command:
+          - terminal length 0
+          - enable
+          - config t
+          - vlan 10
+          - name WIFIVLAN
+          - vlan 50
+          - name IPCCTVLAN
+          - vlan 100
+          - name VOICEVLAN
+          - Int Fa 0/2
+          - switchport mode access
+          - switchport access vlan 10  
+          - Int Fa 0/4
+          - switchport mode access
+          - switchport access vlan 10
+          - Int Fa 0/6
+          - switchport mode access
+          - switchport access vlan 50  
+          - Int Fa 0/8
+          - switchport mode access
+          - switchport access vlan 50    
+          - Int Fa 0/3
+          - switchport mode access
+          - switchport access vlan 100     
+          - Int Fa 0/5
+          - switchport mode access
+          - switchport access vlan 100  
+          - Int Fa 0/7
+          - switchport mode access
+          - switchport access vlan 100    
+          - end
+          - enable
+          - conf t
+          - ip routing
+          - ip route 0.0.0.0 0.0.0.0 10.m.m.1
+          - end

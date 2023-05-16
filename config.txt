@@ -1,0 +1,90 @@
+PASTE MUNA TO SA MGA NETWORK DEVICES PARA MA TELNET
+
+SWITCH:
+config t
+   hostname COREbaba_
+   enable secret pass
+   service password-encryption
+   no logging console
+   no ip domain-lookup
+   username admin privilege 15 secret pass
+   line console 0
+   exec-timeout 0 0
+   no login
+   line vty 0 14
+   transport input all
+   login local
+   Int Gi 0/1
+     no shutdown
+	  no switchport
+	  ip add 10._._.4 255.255.255.0
+   Int Vlan 1
+     no shutdown
+	 ip add 10._.1.4 255.255.255.0
+	 description MGMTDATA
+   Int Vlan 10
+     no shutdown
+	 ip add 10._.10.4 255.255.255.0
+	 description WIRELESS
+   Int Vlan 50
+     no shutdown
+	 ip add 10._.50.4 255.255.255.0
+	 description IPCCTV
+   Int Vlan 100
+     no shutdown
+	 ip add 10._.100.4 255.255.255.0
+	 description VOICEVLAN
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+CUCM:
+
+config t
+   hostname CUCM_
+   enable secret pass
+   service password-encryption
+   no logging console
+   no ip domain-lookup
+   username admin privilege 15 secret pass
+   line console 0
+   exec-timeout 0 0
+   no login
+   line vty 0 14
+   transport input all
+   login local
+   Int Fa 0/0
+     no shutdown
+	 ip add 10._.100.8 255.255.255.0 
+	 end
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+EDGE ROUTER:
+
+
+config t
+   hostname EDGE_
+   enable secret pass
+   service password-encryption
+   no logging console
+   no ip domain-lookup
+    username admin privilege 15 secret pass
+    line console 0
+    exec-timeout 0 0
+    no login
+    line vty 0 14
+    transport input all
+    login local
+   Int Gi 0/0/0
+     description INSIDE
+     ip add 10._._.1 255.255.255.0
+	 no shutdown
+   Int Gi 0/0/1
+     description OUTSIDE
+	 ip add 200.0.0._ 255.255.255.0
+	 no shutdown
+   Int Loopback 0
+     description VIRTUALIP
+	 ip add _.0.0.1 255.255.255.255
+ end

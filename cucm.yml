@@ -1,0 +1,197 @@
+#CISCO UNIFIED CALL MANAGER EXPRESS COMMAND
+#CUCM ANALOG PHONES CONFIG
+
+
+
+---
+
+- name: CUCM-M
+  hosts: (CHANGES THIS)
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: ANALOG
+      telnet:
+        user: admin
+        password: pass
+        login_prompt: "Username: "
+        prompts:
+          - '[>|#]'
+        command:
+          - terminal length 0
+          - enable
+          - config t
+          - configure terminal
+          - dial-peer voice 1 pots
+          - destination-pattern _10
+          - port 0/0/0
+          - dial-peer voice 2 pots
+          - destination-pattern _20
+          - port 0/0/1
+          - dial-peer voice 3 pots
+          - destination-pattern _30
+          - port 0/0/2
+          - dial-peer voice 4 pots
+          - destination-pattern _40
+          - port 0/0/3
+          - end
+
+
+- name: CUCM-M
+  hosts: (CHANGES THIS)
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: E-PHONES
+      telnet:
+        user: admin
+        password: pass
+        login_prompt: "Username: "
+        prompts:
+          - '[>|#]'
+        command:
+          - terminal length 0
+          - enable
+          - config t
+          - no telephony-service
+          - telephony-service
+          - no auto assign
+          - no auto-reg-ephone
+          - max-ephones 5
+          - max-dn 20
+          - ip source-address 10._.100.8 port 2000
+          - create cnf-files
+          - ephone-dn 1
+          - number _11
+          - ephone-dn 2
+          - number _22
+          - ephone-dn 3
+          - number _33
+          - ephone-dn 4
+          - number _44
+          - ephone-dn 5
+          - number _55
+          - ephone-dn 6
+          - number _66
+          - ephone-dn 7
+          - number _77
+          - ephone-dn 8
+          - number _88	
+          - Ephone 1
+          - Mac-address __.__.__
+          - type 8945
+          - button 1:1 2:3 3:2 4:4
+          - restart
+          - Ephone 2
+          - Mac-address __.__.__
+          - type 8945
+          - button 1:5 2:6 3:7 4:8
+          - restart  
+          - end
+      loop: [1, 2]
+      delay: 5
+
+
+
+- name: CUCM-M
+  hosts: (CHANGES THIS)
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: VIDEO
+      telnet:
+        user: admin
+        password: pass
+        login_prompt: "Username: "
+        prompts:
+          - '[>|#]'
+        command:
+          - terminal length 0
+          - enable
+          - config t
+          - ephone 1
+          - video
+          - voice service voip
+          - h323
+          - call start slow  
+          - ephone 2
+          - video
+          - voice service voip
+          - h323
+          - call start slow
+          - end
+          - enable
+          - conf t
+          - ip routing
+          - ip route 0.0.0.0 0.0.0.0 10.m.100.4
+
+
+
+
+#COMMENT MO SARILI MO
+
+- name: CUCM-M
+  hosts: (CHANGES THIS)
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: CALLS
+      telnet:
+        user: admin
+        password: pass
+        login_prompt: "Username: "
+        prompts:
+          - '[>|#]'
+        command:
+          - terminal length 0
+          - enable
+          - config t
+          - voice service voip
+          - ip address trusted list
+          - ipv4 0.0.0.0 0.0.0.0
+          - exit
+          - configure terminal
+          - dial-peer voice 11 Voip
+          - destination-pattern 11..
+          - session target ipv4:10.11.100.8
+          - codec g711ULAW
+          - dial-peer voice 12 Voip
+          - destination-pattern 12..
+          - session target ipv4:10.12.100.8
+          - codec g711ULAW
+          - dial-peer voice 21 Voip
+          - destination-pattern 21..
+          - session target ipv4:10.21.100.8
+          - codec g711ULAW
+          - dial-peer voice 22 Voip
+          - destination-pattern 22..
+          - session target ipv4:10.22.100.8
+          - codec g711ULAW
+          - dial-peer voice 31 Voip
+          - destination-pattern 31..
+          - session target ipv4:10.31.100.8
+          - codec g711ULAW
+          - dial-peer voice 32 Voip
+          - destination-pattern 32..
+          - session target ipv4:10.32.100.8
+          - codec g711ULAW
+          - dial-peer voice 41 Voip
+          - destination-pattern 41..
+          - session target ipv4:10.41.100.8
+          - codec g711ULAW
+          - dial-peer voice 42 Voip
+          - destination-pattern 42..
+          - session target ipv4:10.42.100.8
+          - codec g711ULAW
+          - dial-peer voice 51 Voip
+          - destination-pattern 51..
+          - session target ipv4:10.51.100.8
+          - codec g711ULAW
+          - dial-peer voice 52 Voip
+          - destination-pattern 52..
+          - session target ipv4:10.52.100.8
+          - codec g711ULAW
+          #dial-peer voice 62 Voip
+          #destination-pattern 62..  
+          #session target ipv4:10.62.100.8  
+          #codec g711ULAW
