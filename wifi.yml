@@ -1,0 +1,32 @@
+
+#AUTO-WIFI
+
+---
+
+- name: AUTO-WIFI
+  hosts: wifi
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: TELNET
+      telnet:
+        user: admin
+        password: pass
+        login_prompt: "Username: "
+        prompts:
+          - '[>|#]'
+        command:
+          - enable
+          - conf t
+          - Dot11 ssid __-wifiSSID
+          - authentication open
+          - authentication key-management wpa
+          - wpa-psk ascii C1sc0123
+          - guest-mode
+          - default int Dot11Radio0
+          - int Dot11Radio0
+          - channel 9
+          - no shut
+          - encryption mode ciphers tkip
+          - ssid __-wifiSSID
+          - end
