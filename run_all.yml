@@ -1,0 +1,27 @@
+
+---
+
+- name: SWITCH
+  hosts: switch
+  gather_facts: false
+  connection: local
+
+  tasks:
+    include_tasks: switch.yml
+
+- name: CUCM
+  hosts: cucm
+  gather_facts: false
+  connection: local
+
+  tasks:
+    include_tasks: cucm.yml
+
+
+- name: EDGE
+  hosts: edge
+  gather_facts: false
+  connection: local
+
+  tasks:
+    include_tasks: edge.yml

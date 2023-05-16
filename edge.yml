@@ -1,0 +1,35 @@
+---
+
+- name: CUCM-M
+  hosts: (CHANGES THIS)
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: ROUTING
+      telnet:
+        user: admin
+        password: pass
+        login_prompt: "Username: "
+        prompts:
+          - '[>|#]'
+        command:
+          - terminal length 0
+          - enable
+          - config t
+          - ip route 10.11.0.0 255.255.0.0 200.0.0.11
+          - ip route 10.12.0.0 255.255.0.0 200.0.0.12
+          - ip route 10.21.0.0 255.255.0.0 200.0.0.21
+          - ip route 10.22.0.0 255.255.0.0 200.0.0.22
+          - ip route 10.31.0.0 255.255.0.0 200.0.0.31
+          - ip route 10.32.0.0 255.255.0.0 200.0.0.32
+          - ip route 10.41.0.0 255.255.0.0 200.0.0.41
+          - ip route 10.42.0.0 255.255.0.0 200.0.0.42
+          - ip route 10.51.0.0 255.255.0.0 200.0.0.51
+          - ip route 10.52.0.0 255.255.0.0 200.0.0.52
+          - ip route 10.62.0.0 255.255.0.0 10.62.62.4
+          - end
+
+
+
+
+
