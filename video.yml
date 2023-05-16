@@ -29,7 +29,3 @@
           - h323
           - call start slow
           - end
-          - enable
-          - conf t
-          - ip routing
-          - ip route 0.0.0.0 0.0.0.0 10.m.100.4
