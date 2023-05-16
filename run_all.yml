@@ -1,4 +1,7 @@
 
+
+#SWITCH
+
 ---
 
 - name: SWITCH
@@ -7,7 +10,11 @@
   connection: local
 
   tasks:
-    include_tasks: switch.yml
+    include_tasks: dhcp.yml
+
+
+
+#CUCM
 
 - name: CUCM
   hosts: cucm
@@ -17,6 +24,8 @@
   tasks:
     include_tasks: cucm.yml
 
+
+#EDGE
 
 - name: EDGE
   hosts: edge
