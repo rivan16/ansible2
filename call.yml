@@ -1,11 +1,6 @@
 #COMMENT MO SARILI MO (TAWAG SA IBA)
 
 ---
-
-- name: CUCM-M
-  hosts: (CHANGES THIS)
-  gather_facts: false
-  connection: local
   tasks:
     - name: CALLS
       telnet:
