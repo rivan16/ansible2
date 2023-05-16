@@ -104,7 +104,7 @@ config t
  end
 conf t
 ip routing
-ip route 0.0.0.0 0.0.0.0 10.m.m.1
+ip route 0.0.0.0 0.0.0.0 10.m.m.4
 
 
 
@@ -136,5 +136,5 @@ EDGE
 
 conf t
 ip routing
-ip route 0.0.0.0 0.0.0.0 10.m.m.1
+ip route 0.0.0.0 0.0.0.0 10.m.m.4
 
