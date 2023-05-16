@@ -42,7 +42,7 @@
     
  #AUTO WIFI
 - name: AUTO-WIFI
-  host: wifi
+  hosts: wifi
   gather_facts: false
   connection: local
    
