@@ -107,8 +107,17 @@ ip routing
 ip route 0.0.0.0 0.0.0.0 10.m.m.4
 
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+AUTO-WIFI
 
-
+telnet 10.m.10.3
+admin
+pass
+enable
+pass
+conf t
+no username admin password pass
+username admin privilege 15 secret pass
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 cmd 
