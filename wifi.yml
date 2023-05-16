@@ -3,12 +3,12 @@
 
 ---
 
-- name: AUTO-WIFI
-  hosts: wifi
-  gather_facts: false
-  connection: local
-  tasks:
-    - name: TELNET
+#- name: AUTO-WIFI
+  #hosts: wifi
+  #gather_facts: false
+  #connection: local
+  #tasks:
+    - name: AUTO-WIFI
       telnet:
         user: admin
         password: pass
