@@ -1,0 +1,57 @@
+#_4_IP PHONES
+
+
+---
+
+#- name: CUCM-M
+  #hosts: (CHANGES THIS)
+  #gather_facts: false
+  #connection: local
+  #tasks:
+    - name: E-PHONES
+      telnet:
+        user: admin
+        password: pass
+        login_prompt: "Username: "
+        prompts:
+          - '[>|#]'
+        command:
+          - terminal length 0
+          - enable
+          - config t
+          - no telephony-service
+          - telephony-service
+          - no auto assign
+          - no auto-reg-ephone
+          - max-ephones 5
+          - max-dn 20
+          - ip source-address 10._.100.8 port 2000
+          - create cnf-files
+          - ephone-dn 1
+          - number _11
+          - ephone-dn 2
+          - number _22
+          - ephone-dn 3
+          - number _33
+          - ephone-dn 4
+          - number _44
+          - ephone-dn 5
+          - number _55
+          - ephone-dn 6
+          - number _66
+          - ephone-dn 7
+          - number _77
+          - ephone-dn 8
+          - number _88	
+          - Ephone 1
+          - Mac-address __.__.__
+          - type 8945
+          - button 1:1 2:3 3:2 4:4
+          - restart
+          - Ephone 2
+          - Mac-address __.__.__
+          - type 8945
+          - button 1:5 2:6 3:7 4:8
+          - restart  
+          - end
+      loop: [1, 2]

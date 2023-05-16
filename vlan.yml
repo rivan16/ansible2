@@ -1,0 +1,49 @@
+#_2_VLANS
+
+---
+
+#- name: SWITCH
+  #hosts: (CHANGES THIS)
+  #gather_facts: false
+  #connection: local
+  #tasks:
+    - name: VLAN
+      telnet:
+        user: admin
+        password: pass
+        login_prompt: "Username: "
+        prompts:
+          - '[>|#]'
+        command:
+          - terminal length 0
+          - enable
+          - config t
+          - vlan 10
+          - name WIFIVLAN
+          - vlan 50
+          - name IPCCTVLAN
+          - vlan 100
+          - name VOICEVLAN
+          - Int Fa 0/2
+          - switchport mode access
+          - switchport access vlan 10  
+          - Int Fa 0/4
+          - switchport mode access
+          - switchport access vlan 10
+          - Int Fa 0/6
+          - switchport mode access
+          - switchport access vlan 50  
+          - Int Fa 0/8
+          - switchport mode access
+          - switchport access vlan 50    
+          - Int Fa 0/3
+          - switchport mode access
+          - switchport access vlan 100     
+          - Int Fa 0/5
+          - switchport mode access
+          - switchport access vlan 100  
+          - Int Fa 0/7
+          - switchport mode access
+          - switchport access vlan 100    
+          - end
+
