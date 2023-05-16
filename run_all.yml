@@ -41,10 +41,10 @@
     
     
  #AUTO WIFI
- - name: AUTO-WIFI
-   host: wifi
-   gather_facts: false
-   connection: local
+- name: AUTO-WIFI
+  host: wifi
+  gather_facts: false
+  connection: local
    
-   task:
-     - include_tasks: wifi.yml
+  task:
+    - include_tasks: wifi.yml
