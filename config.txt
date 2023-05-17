@@ -1,3 +1,25 @@
+  ##CENTOS 9
+UPDATE YOUR CENTOS AND INSTALL THE PACKAGES THAT YOU NEED:
+
+dnf update -y
+
+dnf install epel-release -y
+
+dnf install python
+
+dnf install ansible -y
+
+dnf install telnet -y
+
+dnf install nano -y
+
+dnf install python3-netaddr -y
+
+ansible-galaxy collection install cisco.ios
+
+
+***********************************************************
+
 PASTE MUNA TO SA MGA NETWORK DEVICES PARA MA TELNET
 
 SWITCH:
