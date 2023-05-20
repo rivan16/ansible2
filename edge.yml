@@ -3,7 +3,7 @@
 ---
 
 #- name: CUCM-M
-  #hosts: (CHANGES THIS)
+  #hosts: cucm
   #gather_facts: false
   #connection: local
   #tasks:
@@ -28,7 +28,9 @@
           - ip route 10.42.0.0 255.255.0.0 200.0.0.42
           - ip route 10.51.0.0 255.255.0.0 200.0.0.51
           - ip route 10.52.0.0 255.255.0.0 200.0.0.52
-          - ip route 10.62.0.0 255.255.0.0 10.62.62.4
+          - ip route 10.61.0.0 255.255.0.0 200.0.0.61
+          - ip route 10.62.0.0 255.255.0.0 200.0.0.62
+          - ip route 10._.0.0 255.255.0.0 10._._.4
           - end
 
 
