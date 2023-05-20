@@ -63,11 +63,6 @@ ip route 0.0.0.0 0.0.0.0 10.m.m.1
 
        
 
-
-
-
-
-
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 CUCM:
@@ -142,13 +137,31 @@ no username admin password pass
 username admin privilege 15 secret pass
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 cmd 
 
 route delete 10.m.0.0
 route add 10.m.0.0 mask 255.255.0.0 10.m.1.4
 route add 200.0.0.0 mask 255.255.255.0 10.m.1.4
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+#CENTOS
+#nano hosts
+
+[switch]
+10.m.1.4
+
+[cucm]
+10.m.100.8
+
+[edge]
+10.m.m.1
+
+[wifi]
+10.m.10.3
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 SWITCH
 
