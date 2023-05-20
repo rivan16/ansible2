@@ -22,7 +22,8 @@ git clone https://github.com/adont-byte/ccna_ansible.git
 
 PASTE MUNA TO SA MGA NETWORK DEVICES PARA MA TELNET
 
-SWITCH:
+@SWITCH:
+
 config t
    hostname COREbaba_
    enable secret pass
@@ -65,7 +66,7 @@ ip route 0.0.0.0 0.0.0.0 10.m.m.1
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-CUCM:
+@CUCM:
 
 config t
    hostname CUCM_
@@ -91,8 +92,8 @@ ip route 0.0.0.0 0.0.0.0 10.m.100.4
 
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-EDGE ROUTER:
 
+@EDGE ROUTER:
 
 config t
    hostname EDGE_
