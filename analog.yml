@@ -1,11 +1,11 @@
 #_3_CISCO UNIFIED CALL MANAGER EXPRESS COMMAND
 #CUCM ANALOG PHONES CONFIG
-
+#CHANGE THE UNDERSCORE _ TO YOUR MONITOR NUMBER.
 
 
 ---
 
-#- name: CUCM-M
+#- name: CUCM-_
   #hosts: cucm
   #gather_facts: false
   #connection: local
