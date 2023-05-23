@@ -1,9 +1,9 @@
 #_4_IP PHONES
-
+#CHANGE THE UNDERSCORE _ TO YOUR MONITOR NUMBER.
 
 ---
 
-#- name: CUCM-M
+#- name: CUCM-_
   #hosts: cucm
   #gather_facts: false
   #connection: local
