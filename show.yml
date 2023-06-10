@@ -1,0 +1,21 @@
+#ansible-playbook show.yml -vvv
+#show ip address
+
+---
+
+- name: SWITCH
+  hosts: switch
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: SHOW
+      telnet:
+        user: admin
+        password: pass
+        login_prompt: "Username: "
+        prompts:
+          - '[>|#]'
+        command:
+          - terminal length 0
+          - enable
+          - show ip int brief
