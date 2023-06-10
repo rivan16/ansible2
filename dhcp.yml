@@ -48,7 +48,7 @@
           
          
 - name: SWITCH
-  hosts: (CHANGES THIS)
+  hosts: switch
   gather_facts: false
   connection: local
   tasks:
