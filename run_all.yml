@@ -45,10 +45,10 @@
  #AUTO WIFI
 
 
-- name: AUTO-WIFI
-  hosts: wifi
-  gather_facts: false
-  connection: local
+#- name: AUTO-WIFI
+  #hosts: wifi
+  #gather_facts: false
+  #connection: local
 
-  tasks:
-    - include_tasks: wifi.yml
+  #tasks:
+    #- include_tasks: wifi.yml
