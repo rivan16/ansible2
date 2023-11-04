@@ -91,3 +91,4 @@
           - destination-pattern 82..  
           - session target ipv4:10.82.100.8  
           - codec g711ULAW
+          - end
