@@ -122,10 +122,19 @@ config t
  end
 conf t
 ip routing
-ip route 0.0.0.0 0.0.0.0 10._._.4
+ip route 10._.0.0 255.255.0.0 10._._.4
 end
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+OPEN CMD
 
+#ITO ILAGAY KAY CMD
+
+route add 10._.0.0 mask 255.255.0.0 10._.1.4
+route add 200.0.0.0 mask 255.255.255.0 10._.1.4
+route add 10.0.0.0 mask 255.0.0.0 10._.1.4
+
+route delete 10._.0.0 (OPTIONAL)
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 AUTO-WIFI
 
@@ -139,19 +148,6 @@ no username admin password pass
 username admin privilege 15 secret pass
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-cmd 
-
-route delete 10._.0.0 (OPTIONAL)
-
-#ITO ILAGAY KAY CMD
-
-route add 10._.0.0 mask 255.255.0.0 10._.1.4
-route add 200.0.0.0 mask 255.255.255.0 10._.1.4
-route add 10.0.0.0 mask 255.0.0.0 10._.1.4
-
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
 #CENTOS
 #nano hosts
 
