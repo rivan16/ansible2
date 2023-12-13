@@ -17,7 +17,7 @@ dnf install python3-netaddr -y
 
 ansible-galaxy collection install cisco.ios
 
-git clone https://github.com/rivan16/ansible.git
+git clone https://github.com/rivan16/ansible2.git
 ***********************************************************
 
 PASTE MUNA TO SA MGA NETWORK DEVICES PARA MA TELNET
